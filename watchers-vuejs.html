@@ -1,0 +1,49 @@
+<html>
+   <head>
+      <title>VueJs Instance</title>
+      <script type = "text/javascript" src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <style>
+        #computed_props{
+          background: rgb(52, 201, 221);
+          border: solid 1px black;
+          padding: 5px;
+          width: 600px;
+        }
+        h2{
+          color: darkblue;
+          text-align: center;
+        }
+      </style>
+   </head>
+   <body>
+      <div id = "computed_props">
+        <h2>Informe a quantidade de kilometros para converter em Metros</h2>
+        <hr>
+        <strong>Kilometros</strong>: <input type = "text" v-model = "kilometers">
+         <strong>Metros</strong>: <input type = "text" v-model = "meters">
+      </div>
+      <script type = "text/javascript">
+         var vm = new Vue({
+            el: '#computed_props',
+            data: {
+               kilometers : 0,
+               meters:0
+            },
+            methods: {
+            },
+            computed :{
+            },
+            watch : {
+               kilometers:function(val) {
+                  this.kilometers = val;
+                  this.meters = val * 1000;
+               },
+               meters : function (val) {
+                  this.kilometers = val/ 1000;
+                  this.meters = val;
+               }
+            }
+         });
+      </script>
+   </body>
+</html>
